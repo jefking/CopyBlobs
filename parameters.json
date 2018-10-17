@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "source": {
-            "value": ""
+            "value": "https://<AccountName>.blob.core.windows.net/<ContainerName>"
         },
         "sourceKey": {
             "value": ""
         },
         "destination": {
-            "value": ""
+            "value": "https://<AccountName>.blob.core.windows.net/<ContainerName>"
         },
         "destinationKey": {
             "value": ""
