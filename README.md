@@ -23,6 +23,7 @@ Deployment file
 ``
 az group deployment create --name sync --resource-group <resourceGroupName> --template-file transfer.json --parameters source=SOURCE soruceKey=KEY destination=DESTINATION destinationKey=KEY
 ``
+
 OR
 - Edit parameter.json
 
