@@ -1,7 +1,11 @@
 # Azure Storage Copy
-Copies all files in a container to another Storage Account container.
-Stands up ACI, which pulls an AZCopy image; which then transfers the data.
-Utilizes bandwidth in the data center, to ensure the best possible transfer rate.
+Copies all files in a container to another Storage Account container.'
+
+1. Stands up ACI
+2. Pulls an AZCopy image;
+3. Transfers the data.
+    - Utilizes bandwidth in the data center
+    - Ensure the best possible transfer rate.
 
 # Commands
 ## 1. Create/Choose Resource Group
