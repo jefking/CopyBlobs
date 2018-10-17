@@ -1,5 +1,5 @@
 # Azure Storage Copy
-Copies all files in a container to another Storage Account container.'
+Copies all files in a container to another Storage Account container.
 
 1. Stands up ACI
 2. Runs AZCopy
