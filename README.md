@@ -4,6 +4,7 @@ Stands up ACI, which pulls an AZCopy image; which then transfers the data.
 Utilizes bandwidth in the data center, to ensure the best possible transfer rate.
 
 # Commands
+## 1. Create/Choose Resource Group
 Choose the region nearest to the data; this is where ACI will be brought up.
 
 ``
@@ -14,6 +15,7 @@ Deployment file
 - Stands up ACI (in the region of the Resource Group)
 - Intiates copy of data
 
+## 2. Deploy
 ``
 az group deployment create --name sync --resource-group <resourceGroupName> --template-file transfer.json --parameters source=SOURCE soruceKey=KEY destination=DESTINATION destinationKey=KEY
 ``
