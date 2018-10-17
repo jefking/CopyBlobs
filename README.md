@@ -7,6 +7,9 @@ Copies all files in a container to another Storage Account container.
     - Utilizes bandwidth in the data center
     - Ensure the best possible transfer rate.
 
+# Tools
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
 # Commands
 ## 1. Create/Choose Resource Group
 Choose the region nearest to the data; this is where ACI will be brought up.
