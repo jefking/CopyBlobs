@@ -5,6 +5,7 @@ Utilizes bandwidth in the data center, to ensure the best possible transfer rate
 
 # Commands
 Choose the region nearest to the data; this is where ACI will be brought up.
+
 ``
 az group create -g <resourceGroupName> --location "West US 2"
 ``
