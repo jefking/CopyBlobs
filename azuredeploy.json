@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "source": {
+            "type": "string",
+            "metadata": {
+                "description": "Source Storage Account: https://myaccount.blob.core.windows.net/mycontainer1"
+            }
+        },
+        "sourceKey": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage Account Key"
+            }
+        },
+        "destination": {
+            "type": "string",
+            "metadata": {
+                "description": "Desitination Storage Account: https://myaccount.blob.core.windows.net/mycontainer2"
+            }
+        },
+        "destinationKey": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage Account Key"
+            }
+        }
+    },
+    "variables": {
+        "location": "[resourceGroup().location]",
+        "storageAccountType": "Standard_LRS",
+        "image": "hawaku/azcopy:latest",
+        "cpuCores": "1.0",
+        "memoryInGb": "1.5",
+        "containerGroupName": "blob-movement",
+        "containerName": "mover"
+    },
+    "resources": [
+        {
+            "name": "[variables('containerGroupName')]",
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2018-02-01-preview",
+            "location": "[variables('location')]",
+            "properties": {
+                "containers": [
+                    {
+                        "name": "[variables('containerName')]",
+                        "properties": {
+                            "image": "[variables('image')]",
+                            "command": [
+                                "azcopy",
+                                "--source",
+                                "[parameters('source')]",
+                                "--destination",
+                                "[parameters('sourceKey')]",
+                                "--source-key",
+                                "[parameters('destination')]",
+                                "--dest-key",
+                                "[parameters('destinationKey')]",
+                                "--recursive"
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": "[variables('cpuCores')]",
+                                    "memoryInGb": "[variables('memoryInGb')]"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "restartPolicy": "OnFailure",
+                "osType": "Linux"
+            }
+        }
+    ]
+}
